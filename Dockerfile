@@ -7,8 +7,13 @@ RUN apt update
 #this is necessary for steamcmd to run
 RUN apt install -y software-properties-common
 
+RUN apt install -y sudo
+
 #create the user we'll be using for steamcmd, and give it privileges to use chmod
-RUN useradd -m steam && usermod -aG root steam
+RUN useradd -m steam
+
+#let steam use sudo so we can be able to fix permissions when necessary
+RUN echo steam ALL=NOPASSWD:ALL > /etc/sudoers.d/steam
 
 #a hacky way of telling steam that we agree to its ToS
 RUN echo steam steam/question select "I AGREE" | debconf-set-selections
