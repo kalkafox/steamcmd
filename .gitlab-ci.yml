@@ -1,6 +1,7 @@
 image: docker:19.03
 
 variables:
+    SERVICE_PORT_2376_TCP_PORT: 2375
     DOCKER_DRIVER: overlay2
     DOCKER_TLS_CERTDIR: "/certs"
 
