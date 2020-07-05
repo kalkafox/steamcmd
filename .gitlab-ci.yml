@@ -1,7 +1,4 @@
-image: docker
-
-variables:
-    DOCKER_HOST: /var/run/docker.sock
+image: docker:19.03.11
 
 before_script:
     - docker info
