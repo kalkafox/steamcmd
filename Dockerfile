@@ -16,7 +16,7 @@ RUN echo steam steam/question select "I AGREE" | debconf-set-selections
 RUN add-apt-repository non-free && \
     dpkg --add-architecture i386 && \
     apt update && \
-    DEBIAN_FRONTEND=noninteractive apt -y install lib32gcc1 steamcmd libncurses5:i386
+    DEBIAN_FRONTEND=noninteractive apt -y install lib32gcc1 steamcmd libncurses5:i386 libcurl3-gnutls:i386
 
 #clean everything
 RUN apt clean
