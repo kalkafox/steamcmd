@@ -15,5 +15,4 @@ build:
   script:
     - docker build -t kalka/steamcmd .
     - docker run --rm kalka/steamcmd +quit
-  artifacts:
-    image: kalka/steamcmd:latest
+    - docker push 172.17.0.1:5000/kalka/steamcmd
