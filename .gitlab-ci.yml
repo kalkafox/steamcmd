@@ -13,6 +13,7 @@ before_script:
 build:
   stage: build
   script:
-    - docker build -t kalka/steamcmd .
-    - docker run --rm kalka/steamcmd +quit
+    - docker build -t kalka/steamcmd:latest .
+    - docker run --rm kalka/steamcmd:latest +quit
+    - docker tag kalka/steamcmd:latest 172.17.0.1/kalka/steamcmd:latest
     - docker push 172.17.0.1:5000/kalka/steamcmd
