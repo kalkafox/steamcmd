@@ -14,4 +14,3 @@ build:
   stage: build
   script:
     - docker build -t srcds/steamcmd:latest .
-    - docker run --rm srcds/steamcmd:latest +quit
