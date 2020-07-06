@@ -15,5 +15,3 @@ build:
   script:
     - docker build -t srcds/steamcmd:latest .
     - docker run --rm srcds/steamcmd:latest +quit
-    - docker tag srcds/steamcmd:latest registry:5000/srcds/steamcmd
-    - docker push registry:5000/srcds/steamcmd
