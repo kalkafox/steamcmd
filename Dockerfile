@@ -7,7 +7,7 @@ RUN apt update
 #this is necessary for steamcmd to run
 RUN apt install -y software-properties-common
 
-RUN apt install -y sudo
+RUN apt install -y sudo git
 
 #create the user we'll be using for steamcmd, and give it privileges to use chmod
 RUN useradd -m steam
