@@ -12,7 +12,6 @@ RUN dpkg --add-architecture i386 && \
     useradd -m steam
 
 #let steam use sudo so we can be able to fix permissions when necessary
-#a hacky way of telling steam that we agree to its ToS
 RUN echo steam ALL=NOPASSWD:ALL > /etc/sudoers.d/steam
 
 #clean everything
@@ -23,6 +22,6 @@ USER steam
 WORKDIR /home/steam
 
 #invoke this RUN command because we want to cache steamcmd to strategize on faster container deployment. run it once then just quit.
-RUN /usr/games/steamcmd +quit
+RUN /usr/games/steamcmd +quit > /tmp/steamcmd-download.txt
 
 CMD ["/usr/games/steamcmd"]
