@@ -1,4 +1,4 @@
-FROM debian
+FROM ubuntu
 
 LABEL maintainer="k@kalka.io"
 
