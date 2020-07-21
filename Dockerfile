@@ -21,7 +21,4 @@ USER steam
 
 WORKDIR /home/steam
 
-#invoke this RUN command because we want to cache steamcmd to strategize on faster container deployment. run it once then just quit.
-RUN bash -c "/usr/games/steamcmd +quit &> /dev/null"
-
 CMD ["/usr/games/steamcmd"]
