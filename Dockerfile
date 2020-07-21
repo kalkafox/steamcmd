@@ -7,12 +7,13 @@ LABEL maintainer="k@kalka.io"
 #create the user we'll be using for steamcmd, and give it privileges to use chmod
 RUN dpkg --add-architecture i386 && \
     apt update && \
+    echo steam steam/question select "I AGREE" | debconf-set-selections && \
     DEBIAN_FRONTEND=noninteractive apt -y install lib32gcc1 steamcmd libncurses5:i386 libcurl3-gnutls:i386 && \
     useradd -m steam
 
 #let steam use sudo so we can be able to fix permissions when necessary
 #a hacky way of telling steam that we agree to its ToS
-RUN echo steam ALL=NOPASSWD:ALL > /etc/sudoers.d/steam && echo steam steam/question select "I AGREE" | debconf-set-selections
+RUN echo steam ALL=NOPASSWD:ALL > /etc/sudoers.d/steam
 
 #clean everything
 RUN apt clean
